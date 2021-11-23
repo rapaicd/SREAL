@@ -4,15 +4,15 @@
 #include <stdlib.h>
 #include "helper.h"
 
-void VelikaSlova(char* nestoVeliko){
+void VelikaSlova(char* NestoVeliko){
 
-	unsigned int pom = strlen(nestoVeliko);
+	unsigned int pom = strlen(NestoVeliko);
 	unsigned int i;
 
 	for(i=0;i<pom;i++){
 
-		nestoVeliko[i]=toupper(nestoVeliko[i]);
+		NestoVeliko[i]=toupper(NestoVeliko[i]);
 	}
 
-	printf("\nVelika slova: %s\n", nestoVeliko);
+	printf("\nVelika slova: %s\n",NestoVeliko);
 }
