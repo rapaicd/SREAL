@@ -169,20 +169,20 @@ void ispisiTrenutno(int i){
 
     FILE *file;
     struct klub tabela[30];
+    char poredak[]="Poredak";
     char ime[]="IME";
     char bodovi[]="BODOVI";
     char dati[]="DG";
     char prim[]="PG";
     char odigrano[]="ODIGRANO";
 
-    printf("%4s%14s%4s:%2s%13s\n", ime,bodovi, dati, prim, odigrano);
+    printf("%-10s%10s%14s%4s:%2s%13s\n",poredak, ime,bodovi, dati, prim, odigrano);
     
     file = fopen("tabela.txt", "r");
     fread(&tabela, sizeof(klub), 5, file);
     for(int j=0;j<i;j++){
             
-            printf("%-10s%5d%7d:%2d%9d\n", tabela[j].ime, tabela[j].brojBodova, tabela[j].datiGolovi, tabela[j].primljeniGolovi, tabela[j].odigrano);
-            //printf("%s  %d   %d:%d    %d\n", tabela[j].ime, tabela[j].brojBodova, tabela[j].datiGolovi, tabela[j].primljeniGolovi, tabela[j].odigrano);
+            printf("%4d.%16s%10d%7d:%2d%9d\n",j+1 ,tabela[j].ime, tabela[j].brojBodova, tabela[j].datiGolovi, tabela[j].primljeniGolovi, tabela[j].odigrano);
     }
     fclose(file);
 
