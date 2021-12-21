@@ -26,7 +26,7 @@ void ispisXmanjih(int a,int b){
     printf("%4s%14s%4s:%2s%13s\n", ime,bodovi, dati, prim, odigrano);
 
     file = fopen("tabela.txt","r");
-    fread(&ispis,sizeof(klub),5,file);
+    fread(&ispis,sizeof(klub),30,file);
     for(int i=0;i<b;i++){
             if(ispis[i].brojBodova<=a){
 
@@ -48,7 +48,7 @@ void ispisXvecih(int a,int b){
     printf("%4s%14s%4s:%2s%13s\n", ime,bodovi, dati, prim, odigrano);
 
     file = fopen("tabela.txt","r");
-     fread(&ispis,sizeof(klub),5,file);
+     fread(&ispis,sizeof(klub),30,file);
     for(int i=0;i<b;i++){
             if(ispis[i].brojBodova>=a){
 
@@ -64,7 +64,7 @@ void sortiranje(int a){
     struct klub sortZamena[30];
 
     file=fopen("tabela.txt","r");
-    fread(&sort,sizeof(klub),5,file);
+    fread(&sort,sizeof(klub),30,file);
 
     for(int i=0;i<a;i++){
 
@@ -103,7 +103,7 @@ void sortiranje(int a){
 
         sort[k]=sortZamena[k];
     }
-    fwrite(&sort,sizeof(klub),5,file);
+    fwrite(&sort,sizeof(klub),30,file);
     fclose(file);    
 }
 
@@ -115,7 +115,7 @@ void noviTim(int i){
 
     file=fopen("tabela.txt","r");
 
-    fread(&tabela,sizeof(klub),5,file);
+    fread(&tabela,sizeof(klub),30,file);
     fclose(file);
     
     file= fopen("tabela.txt", "w");
@@ -129,7 +129,7 @@ void noviTim(int i){
     tabela[i].primljeniGolovi=0;
     tabela[i].odigrano=0;
 
-    fwrite(&tabela, sizeof(klub), 5, file);
+    fwrite(&tabela, sizeof(klub), 30, file);
     fclose(file);
 }
 
@@ -179,7 +179,7 @@ void ispisiTrenutno(int i){
     printf("%-10s%10s%14s%4s:%2s%13s\n",poredak, ime,bodovi, dati, prim, odigrano);
     
     file = fopen("tabela.txt", "r");
-    fread(&tabela, sizeof(klub), 5, file);
+    fread(&tabela, sizeof(klub), 30, file);
     for(int j=0;j<i;j++){
             
             printf("%4d.%16s%10d%7d:%2d%9d\n",j+1 ,tabela[j].ime, tabela[j].brojBodova, tabela[j].datiGolovi, tabela[j].primljeniGolovi, tabela[j].odigrano);
@@ -233,7 +233,7 @@ void koriguj(int a){
 
     file=fopen("tabela.txt","r");
 
-    fread(&tabela, sizeof(klub), 5, file);
+    fread(&tabela, sizeof(klub), 30, file);
     for(int i=0;i<a;i++){
         
        int t = strcmp(domacin,tabela[i].ime);
@@ -264,7 +264,7 @@ void koriguj(int a){
             tabela[i].primljeniGolovi=primljeniGolovi+rezGost;
         }
     }
-    fwrite(&tabela,sizeof(klub),5,file);
+    fwrite(&tabela,sizeof(klub),30,file);
     fclose(file);
     
     // --GOST-- 
@@ -274,7 +274,7 @@ void koriguj(int a){
     int primljeniGolovi1;
     int odigrano1=0;
     file=fopen("tabela.txt","r");
-    fread(&tabela,sizeof(klub),5,file);
+    fread(&tabela,sizeof(klub),30,file);
     for(int i=0;i<a;i++){
 
         
@@ -306,7 +306,7 @@ void koriguj(int a){
             tabela[i].primljeniGolovi=primljeniGolovi1+rezDomacin;
         }
     }
-fwrite(&tabela,sizeof(klub),5,file);
+fwrite(&tabela,sizeof(klub),30,file);
 fclose(file);
 }
 
